@@ -27,12 +27,10 @@ function App() {
 
   return (
     <>
-    <div>
-      <h1>My Todo List</h1>
-      {/* Berikan data-nya ke component Todos */}
+    <div style={styles.container}>
+      <h1 style={styles.title}>My Todo List</h1>
       <Todos todos={todos} />
     </div>
-
 
       {/*<div> whenClicked is a property not an event, per se.
         <a href="https://vitejs.dev" target="_blank">
@@ -56,6 +54,16 @@ function App() {
       </p>*/}
     </>
   )
+}
+
+const styles = {
+  container: {
+    textAlign: 'center',
+    padding: '12px',
+  },
+  title: {
+    fontSize: '36px',
+  },
 }
 
 export default App
