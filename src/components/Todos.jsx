@@ -1,5 +1,5 @@
 import React from 'react'
-import TodoItem from './TodoItem' // Lakukan import
+import TodoItem from '../components/TodoItem' // Lakukan import
 
 const Todos = ({ todos }) => {
   return (
