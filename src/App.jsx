@@ -1,36 +1,61 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Todos from './components/Todos';  // Lalukan Import
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import Todos from "./components/Todos"; // Lalukan Import
 
 function App() {
   const [todos, setTodos] = useState([
     {
       id: 1,
-      title: 'Finish Progate React Course',
+      title: "Finish Progate React Course",
       completed: false,
     },
     {
       id: 2,
-      title: 'Have lunch with Guru Domba',
+      title: "Have lunch with Guru Domba",
       completed: false,
     },
     {
       id: 3,
-      title: 'Study React with Ninja Ken',
+      title: "Study React with Ninja Ken",
       completed: false,
     },
-  ])
+  ]);
 
-  console.log(todos)
+  console.log(todos);
+
+  // Definisikan toggleCompleted di sini
+  const toggleCompleted = (todoId) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === todoId) {
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+  };
+
+  const deleteTodo = (todoId) => {
+    const deletedTodos = todos.filter((todo) => {
+      if (todo.id !== todoId) {
+        return todo;
+      }
+    });
+    setTodos(deletedTodos);
+  };
 
   return (
     <>
-    <div style={styles.container}>
-      <h1 style={styles.title}>My Todo List</h1>
-      <Todos todos={todos} />
-    </div>
+      <div style={styles.container}>
+        <h1 style={styles.title}>My Todo List</h1>
+        {/* Teruskan function toggleCompleted ke component Todos */}
+        <Todos
+          todos={todos}
+          toggleCompleted={toggleCompleted}
+          deleteTodo={deleteTodo}
+        />
+      </div>
 
       {/*<div> whenClicked is a property not an event, per se.
         <a href="https://vitejs.dev" target="_blank">
@@ -53,17 +78,17 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>*/}
     </>
-  )
+  );
 }
 
 const styles = {
   container: {
-    textAlign: 'center',
-    padding: '12px',
+    textAlign: "center",
+    padding: "12px",
   },
   title: {
-    fontSize: '36px',
+    fontSize: "36px",
   },
-}
+};
 
-export default App
+export default App;
