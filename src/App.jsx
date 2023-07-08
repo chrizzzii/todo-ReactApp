@@ -36,11 +36,26 @@ function App() {
     setTodos(updatedTodos);
   };
 
+
+  const deleteTodo = (todoId) => {
+    const deletedTodos = todos.filter((todo) => {
+      if (todo.id !== todoId) {
+        return todo;
+      }
+    });
+    setTodos(deletedTodos);
+  };
+
   return (
     <>
       <div style={styles.container}>
         <h1 style={styles.title}>My Todo List</h1>
         {/* Teruskan function toggleCompleted ke component Todos */}
+        <Todos
+          todos={todos}
+          toggleCompleted={toggleCompleted}
+          deleteTodo={deleteTodo}
+        />
         <Todos todos={todos} toggleCompleted={toggleCompleted} />
       </div>
 
