@@ -36,7 +36,6 @@ function App() {
     setTodos(updatedTodos);
   };
 
-
   const deleteTodo = (todoId) => {
     const deletedTodos = todos.filter((todo) => {
       if (todo.id !== todoId) {
@@ -56,7 +55,6 @@ function App() {
           toggleCompleted={toggleCompleted}
           deleteTodo={deleteTodo}
         />
-        <Todos todos={todos} toggleCompleted={toggleCompleted} />
       </div>
 
       {/*<div> whenClicked is a property not an event, per se.
