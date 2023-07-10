@@ -1,11 +1,13 @@
 import React from "react";
+import { useState } from "react";
 
 const TodoForm = ({ addTodo }) => {
   const [title, setTitle] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addTodo();
+    addTodo(title);
+    setTitle(""); // Reset title-nya
   };
 
   const handleChangeTitle = (event) => {
@@ -28,6 +30,7 @@ const TodoForm = ({ addTodo }) => {
           onChange={(event) => {
             handleChangeTitle(event);
           }}
+          value={title} // Atur nilai dari input sesuai dengan state  "title"
         />
         <button style={styles.button}>Add Todo</button>
       </form>

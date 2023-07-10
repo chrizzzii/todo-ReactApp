@@ -46,8 +46,19 @@ function App() {
     setTodos(deletedTodos);
   };
 
-  const addTodo = () => {
-    console.log("This is addTodo Function is ");
+  const addTodo = (todoTitle) => {
+    if (todoTitle === "") {
+      return;
+    }
+
+    const newTodo = {
+      id: todos.length + 1,
+      title: todoTitle,
+      completed: false,
+    };
+
+    const updatedTodos = todos.concat(newTodo);
+    setTodos(updatedTodos);
   };
 
   return (
