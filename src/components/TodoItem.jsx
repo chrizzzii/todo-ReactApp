@@ -1,11 +1,7 @@
 import React from "react";
 
-
 // Menerima function toggleCompleted sebagai sebuah prop
 const TodoItem = ({ todo, toggleCompleted, deleteTodo }) => {
-
-const TodoItem = ({ todo, toggleCompleted }) => {
-
   const getTodoTitleStyle = () => {
     if (todo.completed === true) {
       return { textDecoration: "line-through" };
@@ -22,13 +18,10 @@ const TodoItem = ({ todo, toggleCompleted }) => {
         onChange={() => toggleCompleted(todo.id)}
       />
       <p style={getTodoTitleStyle()}>{todo.title}</p>
-
       {/* Tambahkan sebuah button di sini */}
       <button style={styles.button} onClick={() => deleteTodo(todo.id)}>
         x
       </button>
-
-
     </div>
   );
 };
@@ -38,7 +31,6 @@ const styles = {
   todoItem: {
     border: "2px solid #f4f4f4",
     fontSize: "24px",
-
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -58,19 +50,6 @@ const styles = {
     cursor: "pointer",
     fontSize: "16px",
   },
-
-    // Tambahkan styles di bawah ini
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  // Tambahkan styles di bawah ini
-  checkbox: {
-    marginRight: "10px",
-    height: "18px",
-    width: "18px",
-  },
-
 };
 
 export default TodoItem;

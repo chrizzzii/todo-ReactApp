@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Todos from "./components/Todos"; // Lalukan Import
+import TodoForm from "./components/TodoForm";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -45,11 +46,15 @@ function App() {
     setTodos(deletedTodos);
   };
 
+  const addTodo = () => {
+    console.log("This is addTodo Function is ");
+  };
+
   return (
     <>
       <div style={styles.container}>
         <h1 style={styles.title}>My Todo List</h1>
-        {/* Teruskan function toggleCompleted ke component Todos */}
+        <TodoForm addTodo={addTodo} />
         <Todos
           todos={todos}
           toggleCompleted={toggleCompleted}
